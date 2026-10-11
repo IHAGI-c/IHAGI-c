@@ -1,0 +1,48 @@
+name: Update recent PRs
+
+on:
+  schedule:
+    - cron: '0 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refresh README
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -X GET search/issues -f q='author:IHAGI-c type:pr is:merged -user:IHAGI-c -org:iesg-stuff' -f sort=updated -f order=desc -f per_page=5 > prs.json
+          python3 - <<'PY'
+          import json, re
+          items = json.load(open('prs.json'))['items']
+          lines = []
+          for it in items:
+              name = it['repository_url'].rsplit('/', 1)[1]
+              title = it['title'].replace('|', '/').replace('[', '(').replace(']', ')')
+              if len(title) > 80:
+                  title = title[:79].rsplit(' ', 1)[0] + '…'
+              lines.append(f"- [{name}#{it['number']}]({it['html_url']}) {title}")
+          block = '\n'.join(lines)
+          text = open('README.md', encoding='utf-8').read()
+          pattern = r'(<!-- recent:start -->\n).*?(\n<!-- recent:end -->)'
+          new = re.sub(pattern, lambda m: m.group(1) + block + m.group(2), text, flags=re.S)
+          open('README.md', 'w', encoding='utf-8').write(new)
+          PY
+          rm -f prs.json
+
+      - name: Commit
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update recent PRs"
+          git push
