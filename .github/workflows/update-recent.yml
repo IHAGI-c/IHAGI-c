@@ -1,4 +1,4 @@
-name: Update recent PRs
+name: Update chart
 
 on:
   schedule:
@@ -14,35 +14,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Refresh README
+      - name: Draw chart
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api -X GET search/issues -f q='author:IHAGI-c type:pr is:merged -user:IHAGI-c -org:iesg-stuff' -f sort=updated -f order=desc -f per_page=5 > prs.json
-          python3 - <<'PY'
-          import json, re
-          items = json.load(open('prs.json'))['items']
-          lines = []
-          for it in items:
-              name = it['repository_url'].rsplit('/', 1)[1]
-              title = it['title'].replace('|', '/').replace('[', '(').replace(']', ')')
-              if len(title) > 80:
-                  title = title[:79].rsplit(' ', 1)[0] + '…'
-              lines.append(f"- [{name}#{it['number']}]({it['html_url']}) {title}")
-          block = '\n'.join(lines)
-          text = open('README.md', encoding='utf-8').read()
-          pattern = r'(<!-- recent:start -->\n).*?(\n<!-- recent:end -->)'
-          new = re.sub(pattern, lambda m: m.group(1) + block + m.group(2), text, flags=re.S)
-          open('README.md', 'w', encoding='utf-8').write(new)
-          PY
+          gh api -X GET search/issues --paginate --slurp -f q='author:IHAGI-c type:pr is:merged -user:IHAGI-c -org:iesg-stuff' -f per_page=100 > prs.json
+          python3 .github/scripts/chart.py prs.json assets/chart.svg
           rm -f prs.json
 
       - name: Commit
         run: |
-          if git diff --quiet; then
+          git add assets/chart.svg
+          if git diff --cached --quiet; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Update recent PRs"
+          git commit -m "Update chart"
           git push
