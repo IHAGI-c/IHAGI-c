@@ -1,26 +1,25 @@
-<p align="center">
-  <img src="./assets/header.svg" alt="Haseom Shin. A LangGraph graph that turns an issue into a merged pull request." width="100%">
-</p>
+<h2 data-importer="text" align="center">Haseom Shin</h2>
 
-I build LLM agents and fix the places where documents render wrong.
-The rest of my time goes into other people's repositories.
+###
 
-### TRACE
+<p data-importer="text" align="center">I build LLM agents and fix the places where documents render wrong.<br>Most of that work lands in other people’s repositories.</p>
 
-<!-- recent:start -->
-- [vectorcraft#974](https://github.com/storytold/vectorcraft/pull/974) Graph Type: tick mark length and count per axis, category tick marks, axis…
-- [vectorcraft#971](https://github.com/storytold/vectorcraft/pull/971) Graph Type: value axis on the left, right or both sides; separate scales
-- [vectorcraft#959](https://github.com/storytold/vectorcraft/pull/959) Graph Type: combine graph types, one type per series
-- [vectorcraft#947](https://github.com/storytold/vectorcraft/pull/947) Graph Data: blank cells are left out, not drawn as zero; quoted numbers are…
-- [ooxml#45](https://github.com/ChristopherVR/ooxml/pull/45) fix(ui): honour c:dispBlanksAs in combo line series
-<!-- recent:end -->
+###
 
-### NODES
+<div data-importer="image" align="center">
+  <img data-importer="image" height="" src="https://raw.githubusercontent.com/IHAGI-c/IHAGI-c/main/assets/chart.svg"  />
+</div>
 
-- **[ooxml](https://github.com/ChristopherVR/ooxml/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c) · [pptx-viewer](https://github.com/ChristopherVR/pptx-viewer/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c)** — PowerPoint tables and charts drawn the way PowerPoint draws them. Korean text wraps between words.
-- **[vectorcraft](https://github.com/storytold/vectorcraft/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c) · [designcraft](https://github.com/storytold/designcraft/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c)** — Mixed chart types per series, dual value axes, tick marks. Text layout fixes.
-- **[LangChain-OpenTutorial](https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c)** — Weaviate vector store, LCEL fallbacks, token usage.
-- **[langgraph-lecture](https://github.com/IHAGI-c/langgraph-lecture)** — A LangGraph course and a support-ticket agent that waits for human approval.
-- **[langgraph-agent-tutorial](https://github.com/IHAGI-c/langgraph-agent-tutorial)** — A shopping-support chatbot on LangGraph V1.0.
+###
 
-<sub>[LinkedIn](https://www.linkedin.com/in/ihagi)</sub>
+<p data-importer="text" align="center">Pull requests in <a href="https://github.com/ChristopherVR/ooxml/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c">ooxml</a> · <a href="https://github.com/LangChain-OpenTutorial/LangChain-OpenTutorial/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c">LangChain-OpenTutorial</a> · <a href="https://github.com/storytold/vectorcraft/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c">vectorcraft</a> · <a href="https://github.com/storytold/designcraft/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c">designcraft</a> · <a href="https://github.com/ChristopherVR/pptx-viewer/pulls?q=is%3Apr+is%3Amerged+author%3AIHAGI-c">pptx-viewer</a><br>Built <a href="https://github.com/IHAGI-c/langgraph-lecture">langgraph-lecture</a> · <a href="https://github.com/IHAGI-c/langgraph-agent-tutorial">langgraph-agent-tutorial</a><br><a href="https://www.linkedin.com/in/ihagi">LinkedIn</a></p>
+
+###
+
+<picture data-importer="pacman">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/IHAGI-c/IHAGI-c/pacman-output/breakout-contribution-graph-dark.svg?game=breakout">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/IHAGI-c/IHAGI-c/pacman-output/breakout-contribution-graph.svg?game=breakout">
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/IHAGI-c/IHAGI-c/pacman-output/breakout-contribution-graph.svg?game=breakout">
+</picture>
+
+###
